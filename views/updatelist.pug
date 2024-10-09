@@ -1,0 +1,85 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Custom Object Table
+    style.
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 20px;
+      }
+      h1 {
+        color: #333;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      .add-button {
+        display: block;
+        margin: 0 auto 20px;
+        padding: 10px 20px;
+        background-color: #28a745;
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 150px;
+      }
+      .add-button:hover {
+        background-color: #218838;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        background-color: white;
+      }
+      th, td {
+        padding: 12px;
+        text-align: left;
+      }
+      thead th {
+        background-color: #ffcccc;
+        color: #333;
+        font-weight: bold;
+        border-bottom: 2px solid #ddd;
+      }
+      tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      tbody tr:hover {
+        background-color: #f1f1f1;
+      }
+      a {
+        text-decoration: none;
+        color: #007bff;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .edit-link {
+        color: #28a745;
+        font-weight: bold;
+      }
+  body
+    h1 Cars
+    a.add-button(href="/add") Add New Car
+    table(border="1")
+      thead
+        tr
+          th Name
+          th Price
+          th Fuel
+          th Action
+      tbody
+        each car in data
+          tr
+            td= car.properties.name
+            td= car.properties.price
+            td= car.properties.fuel
+            td
+              a.edit-link(href=`/update?object_id=${car.properties.hs_object_id}&name=${car.properties.name}&price=${car.properties.price}&fuel=${car.properties.fuel}`) Edit

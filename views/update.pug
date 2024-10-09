@@ -1,0 +1,96 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Edit Object
+    style.
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 20px;
+      }
+      .modal-dialog {
+        width: 50%;
+        margin: 50px auto;
+      }
+      .modal-content {
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .modal-header {
+        background-color: #ffcccc;
+        color: #333;
+        padding: 15px;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        text-align: center;
+      }
+      .modal-title {
+        font-size: 1.5rem;
+        margin: 0;
+      }
+      .modal-body {
+        padding: 20px;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      .form-group label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+      }
+      .form-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 1rem;
+      }
+      .btn {
+        padding: 10px 15px;
+        font-size: 1rem;
+        cursor: pointer;
+        border-radius: 4px;
+        border: none;
+        margin-right: 10px;
+      }
+      .btn-primary {
+        background-color: #28a745;
+        color: white;
+      }
+      .btn-primary:hover {
+        background-color: #218838;
+      }
+      .btn-default {
+        background-color: #f8f9fa;
+        color: #495057;
+        text-decoration: none;
+      }
+      .btn-default:hover {
+        background-color: #e2e6ea;
+      }
+  body
+    .modal-dialog
+      .modal-content
+        // Modal Header
+        .modal-header
+          h4#myModalLabel.modal-title Edit Object
+        // Modal Body
+        .modal-body
+          form(role='form' method='POST' action='/update')
+            .form-group
+              label(for='name') Name:
+              input#name.form-control(type='text' name='name' value=data.name)
+            .form-group
+              label(for='fuel') Fuel:
+              input#fuel.form-control(type='text' name='fuel' value=data.fuel)
+            .form-group
+              label(for='price') Price:
+              input#price.form-control(type='text' name='price' value=data.price)
+            input#object_id.form-control(type='hidden' name='object_id' value=data.object_id)
+            button.btn.btn-primary(type="submit", name="submit") Confirm
+            a.btn.btn-default(href="/updatelist") Close

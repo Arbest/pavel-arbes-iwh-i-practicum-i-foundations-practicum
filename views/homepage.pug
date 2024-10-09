@@ -1,0 +1,92 @@
+doctype html
+html 
+    head 
+        title= `${title}`
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        // Include Google Fonts for better typography
+        link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap")
+        // Inline CSS Styles
+        style.
+            /* General Styles */
+            body {
+                font-family: 'Open Sans', sans-serif;
+                background-color: #f9f9f9;
+                margin: 0;
+                padding: 0;
+            }
+
+            /* Header */
+            h1 {
+                text-align: center;
+                margin-top: 30px;
+                color: #333;
+            }
+
+            /* Link Styles */
+            a {
+                display: block;
+                text-align: center;
+                margin: 20px auto;
+                text-decoration: none;
+                color: #3498db;
+                font-weight: bold;
+            }
+
+            a:hover {
+                color: #2980b9;
+            }
+
+            /* Cards Container */
+            .cards {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                margin: 0 auto;
+                max-width: 1200px;
+                padding: 20px;
+            }
+
+            /* Individual Card */
+            .card {
+                background-color: #fff;
+                border: 1px solid #e1e1e1;
+                border-radius: 8px;
+                width: 280px;
+                margin: 15px;
+                padding: 20px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                transition: box-shadow 0.3s ease;
+            }
+
+            .card:hover {
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            }
+
+            /* Card Name and Price */
+            .card__name {
+                font-size: 1.6em;
+                color: #2c3e50;
+                margin-bottom: 10px;
+            }
+
+            /* Card Fuel Information */
+            .card__fuel {
+                color: #7f8c8d;
+                font-size: 1em;
+            }
+
+            /* Responsive Design */
+            @media (max-width: 768px) {
+                .card {
+                    width: 100%;
+                    margin: 10px 0;
+                }
+            }
+    body    
+        h1 Cars
+        a(href='/updatelist') Add/Update this table
+        .cards 
+            each car in data
+                .card 
+                    h2.card__name #{car.properties.name} - #{car.properties.price}
+                    p.card__fuel Fuel Type: #{car.properties.fuel}
